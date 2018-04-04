@@ -1,38 +1,30 @@
 import React, {Component} from "react";
 import {action, observable} from "mobx";
-import {MobxReactForm} from "mobx-react-form";
+import Form from "mobx-react-form";
 import validatorjs from "validatorjs";
 
 
 const plugins = {dvr: validatorjs};
 const fields = [{
     name: 'title',
-    label: 'title',
-    placeholder: 'Insert title',
-    rules: 'required|string',
+    label: 'Название',
+    placeholder: 'Insert title'
 }, {
     name: 'ogrn',
-    label: 'ogrn',
-    placeholder: 'Insert ogrn',
-    rules: 'required|string',
+    label: 'ОГРН',
+    placeholder: 'Insert ogrn'
 }, {
     name: 'type',
-    label: 'type',
-    placeholder: 'insert type',
-    rules: 'required|string',
+    label: 'Тип',
+    placeholder: 'insert type'
 }, {
     name: 'regDate',
-    label: 'regDate',
-    placeholder: 'insert regDate',
-    rules: 'required',
-},
-    {
-        name: 'active',
-        label: 'active',
-        placeholder: 'insert active',
-        rules: 'required',
-    }
-
+    label: 'Дата регистрации',
+    placeholder: 'insert regDate'
+}, {
+    name: 'active',
+    label: 'Активна'
+}
 ];
 const hooks = {
     onSuccess(form) {
@@ -44,6 +36,6 @@ const hooks = {
         console.log('Ошибка!', form.errors());
     }
 };
-const CompanyForm = new MobxReactForm({fields}, {plugins, hooks});
+const CompanyForm = new Form({fields}, {plugins, hooks});
 
 export default CompanyForm;

@@ -10,7 +10,7 @@ import CompanyList from "../components/CompanyList";
 import CompanyInfo from "../components/CompanyInfo";
 import CompanyEdit from "../components/CompanyEdit";
 
-/*import CompanyForm from "../forms/CompanyForm";*/
+import CompanyForm from "../forms/CompanyForm";
 
 var axios = require('axios');
 var MockAdapter = require('axios-mock-adapter');
@@ -39,7 +39,7 @@ mock.onGet('/companies').reply(200, {
             type: 'ZAO',
             ogrn: 666,
             regDate: '10.10.2013',
-            active: false
+            active: true
         }
     ]
 });
@@ -78,7 +78,7 @@ const ViewInfoPage = ({match}) => (
 
 const EditInfoPage = ({match}) => (
     <div>
-        <CompanyEdit store={compList} id={match.params.id} ></CompanyEdit>
+        <CompanyEdit store={compList} id={match.params.id} form ={CompanyForm}></CompanyEdit>
     </div>
 );
 
