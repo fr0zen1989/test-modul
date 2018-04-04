@@ -35,7 +35,7 @@ export default observer(({store, id, form}) => (
             <label htmlFor={form.$('active').id}>
                 {form.$('active').label}
             </label>
-            <input {...form.$('active').bind()} value={store.companies[id].active} type="checkbox"/>
+            <input {...form.$('active').bind()} checked={store.companies[id].active} type="checkbox"/>
             <p>{form.$('active').error}</p>
 
             <button type="submit" onClick={form.onSuccess}>Принять</button>
